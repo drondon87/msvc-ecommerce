@@ -1,13 +1,11 @@
 package com.ecommerce.msvcecommerce;
 
-import com.ecommerce.msvcecommerce.models.data.EcommerceData;
-import com.ecommerce.msvcecommerce.models.entities.Price;
-import com.ecommerce.msvcecommerce.repositories.PriceRepository;
-import io.swagger.v3.oas.annotations.ExternalDocumentation;
+import com.ecommerce.msvcecommerce.domain.port.data.EcommerceData;
+import com.ecommerce.msvcecommerce.infraestructure.entities.Price;
+import com.ecommerce.msvcecommerce.domain.port.repositories.PriceRepository;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
-import io.swagger.v3.oas.annotations.info.License;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
