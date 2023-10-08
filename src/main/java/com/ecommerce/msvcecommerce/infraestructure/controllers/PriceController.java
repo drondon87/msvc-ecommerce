@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -50,6 +51,23 @@ public class PriceController {
         PriceDTO pricesDTO = priceServices.findProductsPrice(priceRequestDTO);
         return ResponseEntity.status(HttpStatus.OK).body(pricesDTO);
     }
+
+    @Operation(summary = "Get Filter Prices REST API", description = "REST API to get filter prices by product ID, brand ID and pettition Date")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "HTTP Status OK"),
+            @ApiResponse(responseCode="500", description = "HTTP Status Internal Server Error")
+    })
+    @GetMapping("/price")
+    public ResponseEntity<PriceDTO> getPriceByFilter(
+            @RequestParam @Pattern(regexp="(^[0-9]*$)",message = "Product Id must be only number") String productId,
+            @RequestParam @Pattern(regexp="(^[0-9]*$)",message = "Brand Id must be only number") String brandId,
+            @RequestParam String petitionDate
+        ){
+        PriceRequestDTO priceRequestDTO = new PriceRequestDTO(petitionDate,productId, brandId);
+        PriceDTO pricesDTO = priceServices.findProductsPrice(priceRequestDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(pricesDTO);
+    }
+
 
 
 }

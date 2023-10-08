@@ -21,7 +21,7 @@ public class PriceRequestDTO {
     private String productId;
 
     @NotEmpty(message = "Brand can not be null or empty")
-    @Pattern(regexp = "(^[0-9]*$)", message = "Product Id must be only number")
+    @Pattern(regexp = "(^[0-9]*$)", message = "Brand Id must be only number")
     @Schema(description = "Brand ID to search", example = "1")
     private String brandId;
 }

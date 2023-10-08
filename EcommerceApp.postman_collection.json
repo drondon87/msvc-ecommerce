@@ -54,6 +54,40 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GetPriceWithFilters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/price?productId=35455&brandId=1&petitionDate=2020-06-16 21:00:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"price"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "brandId",
+							"value": "1"
+						},
+						{
+							"key": "petitionDate",
+							"value": "2020-06-16 21:00:00"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
